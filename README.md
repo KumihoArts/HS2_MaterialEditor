@@ -20,7 +20,7 @@ A fork of [KK_Plugins](https://github.com/IllusionMods/KK_Plugins) MaterialEdito
 
 ## Installation
 
-1. Install [BepInEx v5](https://github.com/BepInEx/BepInEx/releases), [BepisPlugins](https://github.com/IllusionMods/BepisPlugins/releases), and [IllusionModdingAPI](https://github.com/IllusionMods/IllusionModdingAPI/releases)
+1. Install or update if you didn't before: [BepInEx v5](https://github.com/BepInEx/BepInEx/releases), [BepisPlugins](https://github.com/IllusionMods/BepisPlugins/releases), and [IllusionModdingAPI](https://github.com/IllusionMods/IllusionModdingAPI/releases)
 2. Download `HS2_MaterialEditor.dll` from the [Releases](../../releases) page
 3. Place it in `[HS2 install]\BepInEx\plugins\HS2_Plugins\`  
 4. Remove any pre-existing `HS2_MaterialEditor.dll` first
