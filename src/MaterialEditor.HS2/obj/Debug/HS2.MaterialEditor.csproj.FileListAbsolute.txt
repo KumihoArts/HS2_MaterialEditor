@@ -1,9 +1,0 @@
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2.MaterialEditor.csproj.AssemblyReference.cache
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2.MaterialEditor.GeneratedMSBuildEditorConfig.editorconfig
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2.MaterialEditor.csproj.CoreCompileInputs.cache
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2.MaterialEditor.sourcelink.json
-C:\Dev\KK_Plugins\KK_Plugins\bin\build\HS2.MaterialEditor\libwebp.lib
-C:\Dev\KK_Plugins\KK_Plugins\bin\build\HS2.MaterialEditor\HS2_MaterialEditor.dll
-C:\Dev\KK_Plugins\KK_Plugins\bin\build\HS2.MaterialEditor\HS2_MaterialEditor.xml
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2_MaterialEditor.dll
-C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.HS2\obj\Debug\HS2_MaterialEditor.xml

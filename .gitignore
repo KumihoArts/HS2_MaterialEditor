@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+UpgradeLog.htm
+
+# Rider
+.idea/
+
+# Snapshots (local build history)
+bin/releases/
+
+# OS
+Thumbs.db
+.DS_Store
