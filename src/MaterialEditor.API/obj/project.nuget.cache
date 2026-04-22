@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "zeSvlFFpXD0=",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\KK_Plugins\\KK_Plugins\\src\\MaterialEditor.API\\API.MaterialEditor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\illusionlibs.bepinex\\5.4.22\\illusionlibs.bepinex.5.4.22.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\illusionlibs.bepinex.harmony\\2.9.0\\illusionlibs.bepinex.harmony.2.9.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\illusionlibs.koikatu.unityengine\\5.6.2.4\\illusionlibs.koikatu.unityengine.5.6.2.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\illusionlibs.koikatu.unityengine.ui\\5.6.2.4\\illusionlibs.koikatu.unityengine.ui.5.6.2.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\illusionlibs.xunity.resourceredirector\\4.18.0\\illusionlibs.xunity.resourceredirector.4.18.0.nupkg.sha512"
+  ],
+  "logs": []
+}

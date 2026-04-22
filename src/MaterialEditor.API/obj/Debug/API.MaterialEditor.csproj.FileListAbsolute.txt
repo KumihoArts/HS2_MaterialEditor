@@ -1,0 +1,9 @@
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\API.MaterialEditor.csproj.AssemblyReference.cache
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\API.MaterialEditor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\API.MaterialEditor.csproj.CoreCompileInputs.cache
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\API.MaterialEditor.sourcelink.json
+C:\Dev\KK_Plugins\KK_Plugins\bin\build\API.MaterialEditor\libwebp.lib
+C:\Dev\KK_Plugins\KK_Plugins\bin\build\API.MaterialEditor\MaterialEditor.dll
+C:\Dev\KK_Plugins\KK_Plugins\bin\build\API.MaterialEditor\MaterialEditor.xml
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\MaterialEditor.dll
+C:\Dev\KK_Plugins\KK_Plugins\src\MaterialEditor.API\obj\Debug\MaterialEditor.xml

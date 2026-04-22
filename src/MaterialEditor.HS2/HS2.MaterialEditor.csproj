@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <AssemblyName>HS2_MaterialEditor</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DefineConstants>$(DefineConstants);Studio</DefineConstants>
+    <Configurations>Debug;Release;Nelly</Configurations>
+  </PropertyGroup>
+
+  <!-- Special edition builds (local only, not published) -->
+  <!-- To build: select the matching configuration name in Visual Studio Configuration Manager -->
+  <!--
+  <PropertyGroup Condition="'$(Configuration)' == 'Nelly'">
+    <DefineConstants>$(DefineConstants);NELLY</DefineConstants>
+    <AssemblyName>HS2_MaterialEditor_Nelly</AssemblyName>
+  </PropertyGroup>
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AI_Shaders.unity3d" />
+    <EmbeddedResource Include="Resources\EC_Shaders.unity3d" />
+    <EmbeddedResource Include="Resources\default.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IllusionLibs.XUnity.ResourceRedirector" Version="4.18.0" />
+    <PackageReference Include="IllusionModdingAPI.HS2API" Version="1.45.1" />
+    <PackageReference Include="SharpZipLib" Version="[1.3.3,1.4)" />
+    <PackageReference Include="Sideloader.HoneySelect2" Version="21.0" />
+    <PackageReference Include="XUnity.Common" Version="1.0.0" />
+    <PackageReference Include="XUnity.ResourceRedirector" Version="1.1.0" />
+  </ItemGroup>
+  <Import Project="..\MaterialEditor.Core\Core.MaterialEditor.projitems" Label="Shared" />
+  <Import Project="..\MaterialEditor.Core.Maker\Core.MaterialEditor.Maker.projitems" Label="Shared" />
+  <Import Project="..\MaterialEditor.Core.Studio\Core.MaterialEditor.Studio.projitems" Label="Shared" />
+  <Import Project="..\Shared\Shared.projitems" Label="Shared" />
+  <Import Project="..\Shared.TextureContainer\Shared.TextureContainer.projitems" Label="Shared" />
+  <Import Project="..\UIUtility\UIUtility.projitems" Label="Shared" />
+  <Import Project="..\MaterialEditor.Base\MaterialEditor.Base.projitems" Label="Shared" />
+</Project>

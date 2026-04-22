@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Admin\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">7.0.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\Admin\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgIllusionLibs_XUnity_ResourceRedirector Condition=" '$(PkgIllusionLibs_XUnity_ResourceRedirector)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.xunity.resourceredirector\4.18.0</PkgIllusionLibs_XUnity_ResourceRedirector>
+    <PkgIllusionLibs_Koikatu_UnityEngine_UI Condition=" '$(PkgIllusionLibs_Koikatu_UnityEngine_UI)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.koikatu.unityengine.ui\5.6.2.4</PkgIllusionLibs_Koikatu_UnityEngine_UI>
+    <PkgIllusionLibs_Koikatu_UnityEngine Condition=" '$(PkgIllusionLibs_Koikatu_UnityEngine)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.koikatu.unityengine\5.6.2.4</PkgIllusionLibs_Koikatu_UnityEngine>
+    <PkgIllusionLibs_BepInEx_Harmony Condition=" '$(PkgIllusionLibs_BepInEx_Harmony)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.bepinex.harmony\2.9.0</PkgIllusionLibs_BepInEx_Harmony>
+    <PkgIllusionLibs_BepInEx Condition=" '$(PkgIllusionLibs_BepInEx)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.bepinex\5.4.22</PkgIllusionLibs_BepInEx>
+  </PropertyGroup>
+</Project>

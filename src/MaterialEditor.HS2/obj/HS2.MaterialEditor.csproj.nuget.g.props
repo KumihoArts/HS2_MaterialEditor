@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Admin\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">7.0.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\Admin\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_TextRenderingModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_TextRenderingModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.textrenderingmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_TextRenderingModule>
+    <PkgSideloader_HoneySelect2 Condition=" '$(PkgSideloader_HoneySelect2)' == '' ">C:\Users\Admin\.nuget\packages\sideloader.honeyselect2\21.0.0</PkgSideloader_HoneySelect2>
+    <PkgMicrosoft_Unity_Analyzers Condition=" '$(PkgMicrosoft_Unity_Analyzers)' == '' ">C:\Users\Admin\.nuget\packages\microsoft.unity.analyzers\1.25.0</PkgMicrosoft_Unity_Analyzers>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_UIModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_UIModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.uimodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_UIModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_UI Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_UI)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.ui\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_UI>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_IMGUIModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_IMGUIModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.imguimodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_IMGUIModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_ImageConversionModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_ImageConversionModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.imageconversionmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_ImageConversionModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_CoreModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_CoreModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.coremodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_CoreModule>
+    <PkgIllusionLibs_HoneySelect2_Unity_TextMeshPro Condition=" '$(PkgIllusionLibs_HoneySelect2_Unity_TextMeshPro)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unity.textmeshpro\2018.4.11.4</PkgIllusionLibs_HoneySelect2_Unity_TextMeshPro>
+    <PkgIllusionLibs_HoneySelect2_UniRx Condition=" '$(PkgIllusionLibs_HoneySelect2_UniRx)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unirx\2020.5.29.5</PkgIllusionLibs_HoneySelect2_UniRx>
+    <PkgIllusionLibs_HoneySelect2_Sirenix_Serialization Condition=" '$(PkgIllusionLibs_HoneySelect2_Sirenix_Serialization)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.sirenix.serialization\2020.5.29.5</PkgIllusionLibs_HoneySelect2_Sirenix_Serialization>
+    <PkgIllusionLibs_HoneySelect2_IL Condition=" '$(PkgIllusionLibs_HoneySelect2_IL)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.il\2020.5.29.5</PkgIllusionLibs_HoneySelect2_IL>
+    <PkgIllusionLibs_HoneySelect2_Assembly-CSharp-firstpass Condition=" '$(PkgIllusionLibs_HoneySelect2_Assembly-CSharp-firstpass)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.assembly-csharp-firstpass\2020.5.29.5</PkgIllusionLibs_HoneySelect2_Assembly-CSharp-firstpass>
+    <PkgIllusionLibs_HoneySelect2_Assembly-CSharp Condition=" '$(PkgIllusionLibs_HoneySelect2_Assembly-CSharp)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.assembly-csharp\2020.5.29.5</PkgIllusionLibs_HoneySelect2_Assembly-CSharp>
+    <PkgIllusionLibs_BepInEx_Harmony Condition=" '$(PkgIllusionLibs_BepInEx_Harmony)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.bepinex.harmony\2.9.0</PkgIllusionLibs_BepInEx_Harmony>
+    <PkgIllusionLibs_BepInEx Condition=" '$(PkgIllusionLibs_BepInEx)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.bepinex\5.4.22</PkgIllusionLibs_BepInEx>
+    <PkgExtensibleSaveFormat_HoneySelect2 Condition=" '$(PkgExtensibleSaveFormat_HoneySelect2)' == '' ">C:\Users\Admin\.nuget\packages\extensiblesaveformat.honeyselect2\21.0.0</PkgExtensibleSaveFormat_HoneySelect2>
+    <PkgBepInEx_Analyzers Condition=" '$(PkgBepInEx_Analyzers)' == '' ">C:\Users\Admin\.nuget\packages\bepinex.analyzers\1.0.4</PkgBepInEx_Analyzers>
+    <PkgIllusionModdingAPI_HS2API Condition=" '$(PkgIllusionModdingAPI_HS2API)' == '' ">C:\Users\Admin\.nuget\packages\illusionmoddingapi.hs2api\1.45.1</PkgIllusionModdingAPI_HS2API>
+    <PkgIllusionLibs_XUnity_ResourceRedirector Condition=" '$(PkgIllusionLibs_XUnity_ResourceRedirector)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.xunity.resourceredirector\4.18.0</PkgIllusionLibs_XUnity_ResourceRedirector>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_XRModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_XRModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.xrmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_XRModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_VRModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_VRModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.vrmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_VRModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_UnityWebRequestWWWModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_UnityWebRequestWWWModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.unitywebrequestwwwmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_UnityWebRequestWWWModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_ScreenCaptureModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_ScreenCaptureModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.screencapturemodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_ScreenCaptureModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_PhysicsModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_PhysicsModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.physicsmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_PhysicsModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_JSONSerializeModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_JSONSerializeModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.jsonserializemodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_JSONSerializeModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_ClothModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_ClothModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.clothmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_ClothModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_AudioModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_AudioModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.audiomodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_AudioModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_AssetBundleModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_AssetBundleModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.assetbundlemodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_AssetBundleModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_AnimationModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_AnimationModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.animationmodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_AnimationModule>
+    <PkgIllusionLibs_HoneySelect2_UnityEngine_AIModule Condition=" '$(PkgIllusionLibs_HoneySelect2_UnityEngine_AIModule)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unityengine.aimodule\2018.4.11.4</PkgIllusionLibs_HoneySelect2_UnityEngine_AIModule>
+    <PkgIllusionLibs_HoneySelect2_Unity_Postprocessing_Runtime Condition=" '$(PkgIllusionLibs_HoneySelect2_Unity_Postprocessing_Runtime)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.unity.postprocessing.runtime\2018.4.11.4</PkgIllusionLibs_HoneySelect2_Unity_Postprocessing_Runtime>
+    <PkgIllusionLibs_HoneySelect2_Cinemachine Condition=" '$(PkgIllusionLibs_HoneySelect2_Cinemachine)' == '' ">C:\Users\Admin\.nuget\packages\illusionlibs.honeyselect2.cinemachine\2018.4.11.4</PkgIllusionLibs_HoneySelect2_Cinemachine>
+  </PropertyGroup>
+</Project>

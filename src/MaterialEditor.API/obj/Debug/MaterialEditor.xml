@@ -1,0 +1,1896 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MaterialEditor</name>
+    </assembly>
+    <members>
+        <member name="F:MaterialEditorAPI.MaterialEditorPlugin.PluginGUID">
+            <summary>
+            MaterialEditor plugin GUID
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPlugin.PluginName">
+            <summary>
+            MaterialEditor plugin name
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPlugin.PluginVersion">
+            <summary>
+            MaterialEditor plugin version
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialEditorPluginBase">
+            <summary>
+            MaterialEditor plugin base
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.NormalMapProperties">
+            <summary>
+            Properties that are normal maps and will have their textures converted
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase._convertedNormalMap">
+            <summary>
+            Dictionary of textures and textures converted to normal maps.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.ConvertNormalMap(UnityEngine.Texture@,System.String,System.Boolean)">
+            <summary>
+            Convert a normal map texture from grey to red by setting the entire red color channel to white
+            </summary>
+            <param name="tex">Texture to convert</param>
+            <param name="propertyName">Name of the property. Checks against the NormalMapProperties list and will not convert unless it matches.</param>
+            <param name="unpack">Whether to unpack the compressed normal or not (red normalmap to blue/purple)</param>
+            <returns>True if the texture was converted</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.ConvertNormalMap(UnityEngine.Texture@,System.String)">
+            <summary>
+            Convert a normal map texture from grey to red by setting the entire red color channel to white
+            </summary>
+            <param name="tex">Texture to convert</param>
+            <param name="propertyName">Name of the property. Checks against the NormalMapProperties list and will not convert unless it matches.</param>
+            <returns>True if the texture was converted</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.IsBrokenTexture(UnityEngine.Texture)">
+            <summary>
+            Determine if the texture has been broken.
+            
+            An object that is not a texture is set as a texture property.
+            zipmod is broken.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.ConvertNormalMap(UnityEngine.Texture,System.Boolean)">
+            <summary>
+            Convert a normal map texture from grey to red by setting the entire red color channel to white
+            </summary>
+            <param name="src">Texture to convert</param>
+            <param name="unpack">Unpack normal maps if supported</param>
+            <returns>Converted Texture</returns>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.Logger">
+            <summary>
+            Logger instance for the plugin
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.Instance">
+            <summary>
+            Singleton instance of the plugin
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ExportPathDefault">
+            <summary>
+            Default path where textures will be exported
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ExportPath">
+            <summary>
+            Path where textures will be exported
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.LocalTexturePathDefault">
+            <summary>
+            Default path where local textures will be exported to / imported from
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.LocalTexturePath">
+            <summary>
+            Path where local textures will be exported to / imported from
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.CopyData">
+            <summary>
+            Saved material edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.LoadedShaders">
+            <summary>
+            Dictionary of loaded shaders
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.XMLShaderProperties">
+            <summary>
+            Sorted dictionary of XML shader properties
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.UIScale">
+            <summary>
+            Configuration entry for ME window scale
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.UIWidth">
+            <summary>
+            Configuration entry for ME window width
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.UIHeight">
+            <summary>
+            Configuration entry for ME window height
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.UIListWidth">
+            <summary>
+            Configuration entry for width of the renderer/materials lists to the side of the window
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.DragSensitivity">
+            <summary>
+            Configuration entry for sensitivity of dragging labels to edit float values
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.PreventDragout">
+            <summary>
+            Prevent dragging the ME window outside of the game window
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.WatchTexChanges">
+            <summary>
+            Configuration entry for watching for file changes and reloading textures on change
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ShaderOptimization">
+            <summary>
+            Replaces every loaded shader with the MaterialEditor copy of the shader
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ExportBakedMesh">
+            <summary>
+            Skinned meshes will be exported in their current state with all customization applied as well as in the current pose
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ExportBakedWorldPosition">
+            <summary>
+            When enabled, objects will be exported with their position changes intact so that, i.e. when exporting two objects they retain their position relative to each other
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ConfigExportPath">
+            <summary>
+            Textures and models will be exported to this folder. If empty, exports to {ExportPathDefault}
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.PersistFilter">
+            <summary>
+            Persist search filter across editor windows
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.Showtooltips">
+            <summary>
+            Whether to show tooltips or not
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.SortPropertiesByType">
+            <summary>
+            Whether to sort shader properties by their types
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.SortPropertiesByName">
+            <summary>
+            Whether to sort shader properties by their names
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.SortPropertiesByCategory">
+            <summary>
+            Whether to sort shader properties by their category
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ProjectorNearClipPlaneMax">
+            <summary>
+            Controls the max value of the slider for this projector property
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ProjectorFarClipPlaneMax">
+            <summary>
+            Controls the max value of the slider for this projector property
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ProjectorFieldOfViewMax">
+            <summary>
+            Controls the max value of the slider for this projector property
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ProjectorAspectRatioMax">
+            <summary>
+            Controls the max value of the slider for this projector property
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ProjectorOrthographicSizeMax">
+            <summary>
+            Controls the max value of the slider for this projector property
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ConvertNormalmapsOnExport">
+            <summary>
+            When enabled, normalmaps get converted from DXT5 compressed (red) normals back to normal OpenGL (blue/purple) normals
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ConfigLocalTexturePath">
+            <summary>
+            Local textures will be exported to / imported from this folder. If empty, defaults to {LocalTexturePathDefault}
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.DarkMode">
+            <summary>
+            When enabled, the Material Editor UI uses a dark colour scheme
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.UIFont">
+            <summary>Font choice for the Material Editor UI</summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialEditorPluginBase.MEFont">
+            <summary>Available font options</summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.CollapseRenderersByDefault">
+            <summary>
+            When enabled, all renderers are collapsed by default when opening a new object
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.CollapseMaterialsByDefault">
+            <summary>
+            When enabled, all materials are collapsed by default when opening a new object
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ShowCollapseRenderersButton">
+            <summary>
+            When enabled, the Collapse Renderers (R) button is shown in the header
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.ShowCollapseMaterialsButton">
+            <summary>
+            When enabled, the Collapse Materials (M) button is shown in the header
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.TooltipOpacity">
+            <summary>
+            Controls the opacity of the tooltip background (0 = fully transparent, 1 = fully opaque)
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.WindowOpacity">
+            <summary>
+            Controls the opacity of the Material Editor window background (0 = fully transparent, 1 = fully opaque)
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorPluginBase.TexturePreviewRightClick">
+            <summary>
+            When enabled, right-clicking a texture property label opens the texture preview panel for that texture
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.Awake">
+            <summary>
+            Init logic, do not call
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.AssetLoadedHook(XUnity.ResourceRedirector.AssetLoadedContext)">
+            <summary>
+            Every time an asset is loaded, swap its shader for the one loaded by MaterialEditor. This reduces the number of instances of a shader once they are cleaned up by garbage collection
+            which reduce RAM usage, etc. Also fixes KK mods in EC by swapping them to the equivalent EC shader.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.CheckBlacklist(System.String,System.String)">
+            <summary>
+            Always returns false, i.e. does nothing. Override to prevent certain materials from showing in the UI.
+            </summary>
+            <param name="materialName">Name of the material</param>
+            <param name="propertyName">Name of the property</param>
+            <returns></returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.RefreshPropertyOrganization">
+            <summary>
+            Refreshes the property organization, which groups shader properties by their categories and sorts them based on the configuration settings.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData">
+            <summary>
+            Represents data for a shader, including its name, shader object, render queue, and optimization flag.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData.ShaderName">
+            <summary>
+            Name of the shader.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData.Shader">
+            <summary>
+            Shader object.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData.RenderQueue">
+            <summary>
+            Render queue value for the shader. Null if not specified.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData.ShaderOptimization">
+            <summary>
+            Indicates whether shader optimization is enabled.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData.#ctor(UnityEngine.Shader,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MaterialEditorAPI.MaterialEditorPluginBase.ShaderData"/> class.
+            </summary>
+            <param name="shader">The shader object.</param>
+            <param name="shaderName">The name of the shader.</param>
+            <param name="renderQueue">The render queue value as a string. Defaults to an empty string.</param>
+            <param name="shaderOptimization">The shader optimization flag as a string. Defaults to null.</param>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData">
+            <summary>
+            Represents data for a shader property, including its name, type, default values, visibility, range, and category.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.Name">
+            <summary>
+            Name of the shader property.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.Type">
+            <summary>
+            Type of the shader property.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.DefaultValue">
+            <summary>
+            Default value of the shader property.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.DefaultValueAssetBundle">
+            <summary>
+            Default value of the shader property when loaded from an asset bundle, like a texture.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.AnisoLevel">
+            <summary>
+            Should only be used with texture properties. The `anisoLevel` of the texture, 0-16.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.FilterMode">
+            <summary>
+            Should only be used with texture properties. The `filterMode` of the texture.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.WrapMode">
+            <summary>
+            Should only be used with texture properties. The `wrapMode` of the texture.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.MinValue">
+            <summary>
+            Should only be used with float properties. Minimum value displayed on the slider, if applicable.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.MaxValue">
+            <summary>
+            Should only be used with float properties. Maximum value displayed on the slider, if applicable.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.Hidden">
+            <summary>
+            Indicates whether the shader property is hidden.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.Category">
+            <summary>
+            Category of the shader property.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData.#ctor(System.String,MaterialEditorAPI.MaterialAPI.ShaderPropertyType,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MaterialEditorAPI.MaterialEditorPluginBase.ShaderPropertyData"/> class.
+            </summary>
+            <param name="name">Name of the shader property.</param>
+            <param name="type">Type of the shader property.</param>
+            <param name="defaultValue">Default value of the shader property.</param>
+            <param name="defaultValueAB">Default value of the shader property when loaded from an asset bundle, like a texture.</param>
+            <param name="anisoLevel">Should only be used with texture properties. The `anisoLevel` of the texture, 0-16.</param>
+            <param name="filterMode">Should only be used with texture properties. The `filterMode` of the texture.</param>
+            <param name="wrapMode">Should only be used with texture properties. The `wrapMode` of the texture.</param>
+            <param name="minValue">Should only be used with float properties. Minimum value displayed on the slider, if applicable.</param>
+            <param name="maxValue">Should only be used with float properties. Maximum value displayed on the slider, if applicable.</param>
+            <param name="hidden">Indicates whether the shader property is hidden.</param>
+            <param name="category">Category of the shader property.</param>
+        </member>
+        <member name="T:MaterialEditorAPI.WeakKeyDictionary`2">
+            <summary>
+            Class that behaves like a Dictonary[TKey,TValue].
+            Keys are held by weak reference; if a key is deleted by the GC, the Key-Value of that key is deleted.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.WeakKeyDictionary`2.SweepDeadValuesLittle">
+            <summary>
+            Sweeps dead values deleted by the GC from the dictionary.
+            
+            This is an assumption that is regularly called from Update() and other functions.
+            Clean only to the extent that it does not overload the system.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.WeakKey`1">
+            <summary>
+            A class that behaves as a dictionary key.
+            Keys are held by weak reference.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.WeakKeyComperer`1.Equals(System.Object,System.Object)">
+            <summary>
+            Determine whether the objects are the same.
+            Accepts TKey and WeakKey[TKey] as arguments.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialAPI">
+            <summary>
+            API for safely setting the properties of materials
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorMaterialInstances">
+            <summary>
+            Projector materials share an instance by default, unlike renderers which get a unique one by default.
+            This list keeps track of every projector and it's new unique material instance
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.MaterialCopyPostfix">
+            <summary>
+            Postfix added to the name of a material when copied
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.GetRendererList(UnityEngine.GameObject)">
+            <summary>
+            Get a list of all the renderers of a GameObject
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.GetProjectorList(UnityEngine.GameObject,System.Boolean)">
+            <summary>
+            Get a list of all the projectors of a GameObject
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.GetMaterials(UnityEngine.GameObject,UnityEngine.Renderer)">
+            <summary>
+            Get a list of materials for the renderer
+            </summary>
+            <param name="gameObject">GameObject to which the renderer belongs</param>
+            <param name="renderer">Renderer containing the materials</param>
+            <returns>Array of materials</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetMaterials(UnityEngine.GameObject,UnityEngine.Renderer,UnityEngine.Material[])">
+            <summary>
+            Set the material array for a renderer
+            </summary>
+            <param name="gameObject">GameObject to which the renderer belongs</param>
+            <param name="renderer">Renderer containing the materials</param>
+            <param name="materials">Materials to set</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.CopyMaterial(UnityEngine.GameObject,System.String,System.String)">
+            <summary>
+            Create a copy of the materials with the specified name for the GameObject
+            </summary>
+            <param name="gameObject">GameObject for which to copy materials</param>
+            <param name="materialName">Name of the material</param>
+            <param name="materialCopyName">Name for the new copy, leave blank to auto generate a name</param>
+            <returns>Name of the new copy</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.RemoveMaterialCopies(UnityEngine.GameObject)">
+            <summary>
+            Remove any material copies added by MaterialEditor for the specified GameObject
+            </summary>
+            <param name="gameObject">GameObject for which to remove materials</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.RemoveMaterial(UnityEngine.GameObject,UnityEngine.Material)">
+            <summary>
+            Removes a specific material from the specified GameObject's renderers.
+            </summary>
+            <param name="gameObject">The GameObject whose renderers will be searched for the material.</param>
+            <param name="material">The material to be removed.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetName(UnityEngine.GameObject,System.String,System.String,System.String)">
+            <summary>
+            Rename the material specified by GameObject, Renderer name, and Material name
+            </summary>
+            <param name="gameObject">GameObject to which the material belongs</param>
+            <param name="rendererName">Name of the renderer</param>
+            <param name="materialName">Name of the material</param>
+            <param name="value">New name of the material</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetFloat(UnityEngine.GameObject,System.String,System.String,System.Single)">
+            <summary>
+            Set the value of the specified material property
+            </summary>
+            <param name="gameObject">GameObject to search for the material. If this GameObject is a ChaControl, only parts comprising the body and face will be searched, not clothes, accessories, etc.</param>
+            <param name="materialName">Name of the material being set</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the material was found and the value set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetKeyword(UnityEngine.GameObject,System.String,System.String,System.Boolean)">
+            <summary>
+            Set the value of the specified material property
+            </summary>
+            <param name="gameObject">GameObject to search for the material</param>
+            <param name="materialName">Name of the material being set</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the material was found and the value set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetColor(UnityEngine.GameObject,System.String,System.String,System.String)">
+            <summary>
+            Set the value of the specified material property
+            </summary>
+            <param name="gameObject">GameObject to search for the material</param>
+            <param name="materialName">Name of the material being set</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the material was found and the value set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetColor(UnityEngine.GameObject,System.String,System.String,UnityEngine.Color)">
+            <summary>
+            Set the value of the specified material property
+            </summary>
+            <param name="gameObject">GameObject to search for the material</param>
+            <param name="materialName">Name of the material being set</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the material was found and the value set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererProperty(UnityEngine.GameObject,System.String,MaterialEditorAPI.MaterialAPI.RendererProperties,System.String)">
+            <summary>
+            Set the value of the specified renderer property
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="propertyName">Property of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererProperty(UnityEngine.GameObject,System.String,MaterialEditorAPI.MaterialAPI.RendererProperties,System.Int32)">
+            <summary>
+            Set the value of the specified renderer property
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="propertyName">Property of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererEnabled(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Set a renderer enabled or disabled
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererShadowCastingMode(UnityEngine.GameObject,System.String,UnityEngine.Rendering.ShadowCastingMode)">
+            <summary>
+            Set the ShadowCastingMode of a renderer
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererReceiveShadows(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Set the ReceiveShadows property of a renderer
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererUpdateWhenOffscreen(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Set the ReceiveShadows property of a renderer
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="rendererName">Name of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRendererRecalculateNormals(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Recalculates the normals of a SkinnedMeshRenderer's mesh.
+            </summary>
+            <param name="gameObject">The GameObject containing the renderer.</param>
+            <param name="rendererName">The name of the renderer to modify.</param>
+            <param name="value">If true, recalculates the normals; otherwise, does nothing.</param>
+            <returns>True if the normals were recalculated; otherwise, false.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorProperty(UnityEngine.GameObject,System.String,MaterialEditorAPI.MaterialAPI.ProjectorProperties,System.Single)">
+            <summary>
+            Set the value of the specified projector property
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="propertyName">Property of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorEnabled(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Set the enabled property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="projectorName">Name of the renderer being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorFarClipPlane(UnityEngine.GameObject,System.String,System.Single)">
+            <summary>
+            Set the farclipPlane property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorNearClipPlane(UnityEngine.GameObject,System.String,System.Single)">
+            <summary>
+            Set the nearClipPlane property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorFieldOfView(UnityEngine.GameObject,System.String,System.Single)">
+            <summary>
+            Set the fieldOfView property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorAspectRatio(UnityEngine.GameObject,System.String,System.Single)">
+            <summary>
+            Set the aspectRatio property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorOrthographic(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Set the orthographic property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorOrthographicSize(UnityEngine.GameObject,System.String,System.Single)">
+            <summary>
+            Set the orthoGraphicSize property of a projector
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetProjectorIgnoreLayers(UnityEngine.GameObject,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Add or remove the given layer to/from the ignored layers property.
+            Ensures it's not removed/added that was already the case
+            </summary>
+            <param name="gameObject">GameObject to search for the projector</param>
+            <param name="projectorName">Name of the projector being modified</param>
+            <param name="ignore">If the given layer should be ignored or not</param>
+            <param name="layer">The index of the layer to be added/removed</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetTexture(UnityEngine.GameObject,System.String,System.String,UnityEngine.Texture)">
+            <summary>
+            Set the texture property of a material
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="materialName">Name of the material being modified</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetTextureOffset(UnityEngine.GameObject,System.String,System.String,System.Nullable{UnityEngine.Vector2})">
+            <summary>
+            Set the texture offset property of a material
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="materialName">Name of the material being modified</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetTextureScale(UnityEngine.GameObject,System.String,System.String,System.Nullable{UnityEngine.Vector2})">
+            <summary>
+            Set the texture scale property of a material
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="materialName">Name of the material being modified</param>
+            <param name="propertyName">Property of the material being set</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetShader(UnityEngine.GameObject,System.String,System.String,System.Boolean)">
+            <summary>
+            Set the shader of a material. Can only be set to a shader that has been loaded by MaterialEditor.
+            </summary>
+            <param name="gameObject">The GameObject to search for the renderer.</param>
+            <param name="materialName">The name of the material being modified.</param>
+            <param name="shaderName">The name of the shader to be set.</param>
+            <param name="preserveRenderQueue">Indicates whether to preserve the render queue of the material (if it's not specified in shaderData).</param>
+            <returns>True if the shader was successfully set; otherwise, false.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialAPI.SetRenderQueue(UnityEngine.GameObject,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Set the render queue of a material
+            </summary>
+            <param name="gameObject">GameObject to search for the renderer</param>
+            <param name="materialName">Name of the material being modified</param>
+            <param name="value">Value to be set</param>
+            <returns>True if the value was set, false if it could not be set</returns>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialAPI.ShaderPropertyType">
+            <summary>
+            Type of the shader property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ShaderPropertyType.Texture">
+            <summary>
+            Texture
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ShaderPropertyType.Color">
+            <summary>
+            Color, Vector4, Vector3, Vector2
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ShaderPropertyType.Float">
+            <summary>
+            Float, Int, Bool
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ShaderPropertyType.Keyword">
+            <summary>
+            Bool
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialAPI.RendererProperties">
+            <summary>
+            Properties of a renderer that can be set
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.RendererProperties.Enabled">
+            <summary>
+            Whether the renderer is enabled
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.RendererProperties.ShadowCastingMode">
+            <summary>
+            ShadowCastingMode of the renderer
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.RendererProperties.ReceiveShadows">
+            <summary>
+            Whether the renderer will receive shadows cast by other objects
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.RendererProperties.RecalculateNormals">
+            <summary>
+            Whether the renderer should recalculate the normals on itself
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.RendererProperties.UpdateWhenOffscreen">
+            <summary>
+            Whether the renderer updates while off-screen
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialAPI.ProjectorProperties">
+            <summary>
+            Properties of a projector that can be set
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.Enabled">
+            <summary>
+            Whether the projector is enabled
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.NearClipPlane">
+            <summary>
+            Near clip plane to start projecting
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.FarClipPlane">
+            <summary>
+            Far clip plane to stop projecting
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.FieldOfView">
+            <summary>
+            Field of View of projection
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.AspectRatio">
+            <summary>
+            Aspect ratio of the projection
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.Orthographic">
+            <summary>
+            Whether the projector should project in orthographic mode
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.OrthographicSize">
+            <summary>
+            The size of the orthographic projection
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.IgnoreCharaLayer">
+            <summary>
+            If the projector should ignore objects on the chara layer
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialAPI.ProjectorProperties.IgnoreMapLayer">
+            <summary>
+            If the projector should ignore objects on the map layer
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.ConfigurationManagerAttributes">
+            <summary>
+            Class that specifies how a setting should be displayed inside the ConfigurationManager settings window.
+            
+            Usage:
+            This class template has to be copied inside the plugin's project and referenced by its code directly.
+            make a new instance, assign any fields that you want to override, and pass it as a tag for your setting.
+            
+            If a field is null (default), it will be ignored and won't change how the setting is displayed.
+            If a field is non-null (you assigned a value to it), it will override default behavior.
+            </summary>
+            
+            <example> 
+            Here's an example of overriding order of settings and marking one of the settings as advanced:
+            <code>
+            // Override IsAdvanced and Order
+            Config.AddSetting("X", "1", 1, new ConfigDescription("", null, new ConfigurationManagerAttributes { IsAdvanced = true, Order = 3 }));
+            // Override only Order, IsAdvanced stays as the default value assigned by ConfigManager
+            Config.AddSetting("X", "2", 2, new ConfigDescription("", null, new ConfigurationManagerAttributes { Order = 1 }));
+            Config.AddSetting("X", "3", 3, new ConfigDescription("", null, new ConfigurationManagerAttributes { Order = 2 }));
+            </code>
+            </example>
+            
+            <remarks> 
+            You can read more and see examples in the readme at https://github.com/BepInEx/BepInEx.ConfigurationManager
+            You can optionally remove fields that you won't use from this class, it's the same as leaving them null.
+            </remarks>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.ShowRangeAsPercent">
+            <summary>
+            Should the setting be shown as a percentage (only use with value range settings).
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.CustomDrawer">
+            <summary>
+            Custom setting editor (OnGUI code that replaces the default editor provided by ConfigurationManager).
+            See below for a deeper explanation. Using a custom drawer will cause many of the other fields to do nothing.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.Browsable">
+            <summary>
+            Show this setting in the settings screen at all? If false, don't show.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.Category">
+            <summary>
+            Category the setting is under. Null to be directly under the plugin.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.DefaultValue">
+            <summary>
+            If set, a "Default" button will be shown next to the setting to allow resetting to default.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.HideDefaultButton">
+            <summary>
+            Force the "Reset" button to not be displayed, even if a valid DefaultValue is available. 
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.Description">
+            <summary>
+            Optional description shown when hovering over the setting.
+            Not recommended, provide the description when creating the setting instead.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.DispName">
+            <summary>
+            Name of the setting.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.Order">
+            <summary>
+            Order of the setting on the settings list relative to other settings in a category.
+            0 by default, higher number is higher on the list.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.ReadOnly">
+            <summary>
+            Only show the value, don't allow editing it.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.IsAdvanced">
+            <summary>
+            If true, don't show the setting by default. User has to turn on showing advanced settings or search for it.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.ObjToStr">
+            <summary>
+            Custom converter from setting type to string for the built-in editor textboxes.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.ConfigurationManagerAttributes.StrToObj">
+            <summary>
+            Custom converter from string to setting type for the built-in editor textboxes.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer">
+            <summary>
+            Class containing material data, used to for copy and paste of material edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialFloatPropertyList">
+            <summary>
+            List of float property edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialKeywordPropertyList">
+            <summary>
+            List of keyword property edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialColorPropertyList">
+            <summary>
+            List of color property edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialTexturePropertyList">
+            <summary>
+            List of texture property edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialShaderList">
+            <summary>
+            List of shader edits
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.ProjectorPropertyList">
+            <summary>
+            List of projector edits
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.CopyContainer.IsEmpty">
+            <summary>
+            Whether there are any copied edits
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.ClearAll">
+            <summary>
+            Clear any copied edits
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.MaterialFloatProperty">
+            <summary>
+            Data storage class for float properties
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialFloatProperty.Property">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialFloatProperty.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialFloatProperty.#ctor(System.String,System.Single)">
+            <summary>
+            Data storage class for float properties
+            </summary>
+            <param name="property">Name of the property</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.MaterialKeywordProperty">
+            <summary>
+            Data storage class for keyword properties
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialKeywordProperty.Property">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialKeywordProperty.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialKeywordProperty.#ctor(System.String,System.Boolean)">
+            <summary>
+            Data storage class for keyword properties
+            </summary>
+            <param name="property">Name of the property</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.MaterialColorProperty">
+            <summary>
+            Data storage class for color properties
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialColorProperty.Property">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialColorProperty.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialColorProperty.#ctor(System.String,UnityEngine.Color)">
+            <summary>
+            Data storage class for color properties
+            </summary>
+            <param name="property">Name of the property</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.MaterialTextureProperty">
+            <summary>
+            Data storage class for texture properties
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialTextureProperty.Property">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialTextureProperty.Data">
+            <summary>
+            ID of the texture as stored in the texture dictionary
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialTextureProperty.Offset">
+            <summary>
+            Texture offset value
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialTextureProperty.Scale">
+            <summary>
+            Texture scale value
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialTextureProperty.#ctor(System.String,System.Byte[],System.Nullable{UnityEngine.Vector2},System.Nullable{UnityEngine.Vector2})">
+            <summary>
+            Data storage class for texture properties
+            </summary>
+            <param name="property">Name of the property</param>
+            <param name="data">Byte array containing the texture</param>
+            <param name="offset">Texture offset value</param>
+            <param name="scale">Texture scale value</param>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.MaterialShader">
+            <summary>
+            Data storage class for shader data
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialShader.ShaderName">
+            <summary>
+            Name of the shader
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.MaterialShader.RenderQueue">
+            <summary>
+            Render queue
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialShader.#ctor(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Data storage class for shader data
+            </summary>
+            <param name="shaderName">Name of the shader</param>
+            <param name="renderQueue">Render queue</param>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialShader.#ctor(System.String)">
+            <summary>
+            Data storage class for shader data
+            </summary>
+            <param name="shaderName">Name of the shader</param>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialShader.#ctor(System.Nullable{System.Int32})">
+            <summary>
+            Data storage class for shader data
+            </summary>
+            <param name="renderQueue">Render queue</param>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.MaterialShader.NullCheck">
+            <summary>
+            Check if the shader name and render queue are both null. Safe to delete this data if true.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MaterialEditorAPI.CopyContainer.ProjectorProperty">
+            <summary>
+            Data storage class for projector properties
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.ProjectorProperty.Property">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.CopyContainer.ProjectorProperty.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.CopyContainer.ProjectorProperty.#ctor(MaterialEditorAPI.MaterialAPI.ProjectorProperties,System.Single)">
+            <summary>
+            Data storage class for projector properties
+            </summary>
+            <param name="property">Name of the property</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="T:MaterialEditorAPI.Export">
+            <summary>
+            Contains methods for exporting the renderer data in various formats
+            </summary>
+            <summary>
+            Contains methods for exporting the renderer data in various formats
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.Export.ExportObj(UnityEngine.Renderer)">
+            <summary>
+            Exports the mesh of the SkinnedMeshRenderer or MeshRenderer
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.Export.MeshToObjString(UnityEngine.Renderer)">
+            <summary>
+            Converts the mesh data from a given Renderer into an OBJ formatted string.
+            </summary>
+            <param name="rend">The Renderer containing the mesh to be converted to an OBJ string. Supported types include MeshRenderer and SkinnedMeshRenderer.</param>
+            <returns>A string representation of the mesh in OBJ format, or an empty string if the Renderer does not have a valid mesh.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.Export.ExportUVMaps(UnityEngine.Renderer)">
+            <summary>
+            Exports the UV map(s) of the SkinnedMeshRenderer or MeshRenderer
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.Export.Reduce(System.Single)">
+            <summary>
+            Trim any floats outside of 0-1 range so only the decimal place remains. For moving UVs to the main unit square if they are outside of it.
+            Probably a better way to do this. Probably breaks if one or two points of the tri are on a different UV square.
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MaterialEditorAPI.Extensions.ToColor(System.String)">
+            <summary>
+            Convert string to Color
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.MaterialEditorUI">
+            <summary>
+            Code for the MaterialEditor UI
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorUI.MaterialEditorWindow">
+            <summary>
+            Element containing the entire UI
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorUI.MaterialEditorMainPanel">
+            <summary>
+            Main panel
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.MaterialEditorUI.DragPanel">
+            <summary>
+            Draggable header
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorUI.UIInstance">
+            <summary>Singleton instance of the MaterialEditorUI</summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorUI.FlatSprite">
+            <summary>A plain 1x1 white pixel sprite — replaces UILib's rounded sprites for a flat squared look</summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.UpdateHeaderButtons">
+            <summary>Show or hide the R and M header buttons based on config</summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetTexturePreview(UnityEngine.Texture,System.String)">
+            <summary>
+            Update the texture preview panel with the given texture and name
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.ApplyTheme">
+            <summary>
+            Apply light or dark theme to the Material Editor UI
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.ToggleMaterialPreview(System.String,UnityEngine.Texture)">
+            <summary>
+            Toggle the texture preview for a material row. Right-click same to close, different to switch.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.UpdateTexturePreviewPanelPosition">
+            <summary>Snap the preview panel to the right of the ME window.</summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.InitUI">
+            <summary>
+            Initialize the MaterialEditor UI
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RefreshUI">
+            <summary>
+            Refresh the MaterialEditor UI
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RefreshUI(System.String)">
+            <summary>
+            Refresh the MaterialEditor UI using the specified filter text
+            </summary>
+        </member>
+        <member name="P:MaterialEditorAPI.MaterialEditorUI.Visible">
+            <summary>
+            Get or set the MaterialEditor UI visibility
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.WildCardSearch(System.String,System.String)">
+            <summary>
+            Search text using wildcards.
+            </summary>
+            <param name="text">Text to search in</param>
+            <param name="filter">Filter with which to search the text</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.PopulateRendererList(UnityEngine.GameObject,System.Object,System.Collections.Generic.IEnumerable{UnityEngine.Renderer})">
+            <summary>
+            Populate the renderer list
+            </summary>
+            <param name="go">GameObject for which to read the renderers</param>
+            <param name="data">Object that will be passed through to the get/set/reset events</param>
+            <param name="rendListFull">List of all renderers to display</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.PopulateMaterialList(UnityEngine.GameObject,System.Object,System.Collections.Generic.IEnumerable{UnityEngine.Renderer})">
+            <summary>
+            Populate the materials list
+            </summary>
+            <param name="go">GameObject for which to read the renderers</param>
+            <param name="data">Object that will be passed through to the get/set/reset events</param>
+            <param name="materials">List of all materials to display</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.PopulateRenameList(UnityEngine.GameObject,UnityEngine.Material,System.Object)">
+            <summary>
+            Populate the rename list
+            </summary>
+            <param name="go">GameObject for which to read the renderers</param>
+            <param name="material">Material to be renamed</param>
+            <param name="data">Object that will be passed through to the get/set/reset events</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.PopulateList(UnityEngine.GameObject,System.Object,System.String)">
+            <summary>
+            Populate the MaterialEditor UI
+            </summary>
+            <param name="go">GameObject for which to read the renderers and materials</param>
+            <param name="data">Object that will be passed through to the get/set/reset events</param>
+            <param name="filter">Comma separated list of text to filter the results</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.OnGUI">
+            <summary>
+            Obj export should be done in OnGUI or something similarly late so that finger rotation is exported properly
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.PopulateListCoroutine(UnityEngine.GameObject,System.Object,System.String)">
+            <summary>
+            Hacky workaround to wait for the dropdown fade to complete before refreshing
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetRendererPropertyValueOriginal(System.Object,UnityEngine.Renderer,MaterialEditorAPI.MaterialAPI.RendererProperties,UnityEngine.GameObject)">
+            <summary>
+            Gets the original value of a renderer property.
+            </summary>
+            <param name="data">The data object associated with the renderer.</param>
+            <param name="renderer">The renderer to retrieve the property value from.</param>
+            <param name="property">The property to retrieve.</param>
+            <param name="gameObject">The game object associated with the renderer.</param>
+            <returns>The original value of the renderer property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetRendererPropertyValue(System.Object,UnityEngine.Renderer,MaterialEditorAPI.MaterialAPI.RendererProperties,UnityEngine.GameObject)">
+            <summary>
+            Gets the current value of a renderer property.
+            </summary>
+            <param name="data">The data object associated with the renderer.</param>
+            <param name="renderer">The renderer to retrieve the property value from.</param>
+            <param name="property">The property to retrieve.</param>
+            <param name="gameObject">The game object associated with the renderer.</param>
+            <returns>The current value of the renderer property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetRendererProperty(System.Object,UnityEngine.Renderer,MaterialEditorAPI.MaterialAPI.RendererProperties,System.String,UnityEngine.GameObject)">
+            <summary>
+            Sets the value of a renderer property.
+            </summary>
+            <param name="data">The data object associated with the renderer.</param>
+            <param name="renderer">The renderer to modify.</param>
+            <param name="property">The property to set.</param>
+            <param name="value">The value to set for the property.</param>
+            <param name="gameObject">The game object associated with the renderer.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveRendererProperty(System.Object,UnityEngine.Renderer,MaterialEditorAPI.MaterialAPI.RendererProperties,UnityEngine.GameObject)">
+            <summary>
+            Removes a renderer property.
+            </summary>
+            <param name="data">The data object associated with the renderer.</param>
+            <param name="renderer">The renderer to modify.</param>
+            <param name="property">The property to remove.</param>
+            <param name="gameObject">The game object associated with the renderer.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetProjectorPropertyValueOriginal(System.Object,UnityEngine.Projector,MaterialEditorAPI.MaterialAPI.ProjectorProperties,UnityEngine.GameObject)">
+            <summary>
+            Gets the original value of a projector property.
+            </summary>
+            <param name="data">The data object associated with the projector.</param>
+            <param name="renderer">The projector to retrieve the property value from.</param>
+            <param name="property">The property to retrieve.</param>
+            <param name="gameObject">The game object associated with the projector.</param>
+            <returns>The original value of the projector property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetProjectorPropertyValue(System.Object,UnityEngine.Projector,MaterialEditorAPI.MaterialAPI.ProjectorProperties,UnityEngine.GameObject)">
+            <summary>
+            Gets the current value of a projector property.
+            </summary>
+            <param name="data">The data object associated with the projector.</param>
+            <param name="renderer">The projector to retrieve the property value from.</param>
+            <param name="property">The property to retrieve.</param>
+            <param name="gameObject">The game object associated with the projector.</param>
+            <returns>The current value of the projector property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetProjectorProperty(System.Object,UnityEngine.Projector,MaterialEditorAPI.MaterialAPI.ProjectorProperties,System.Single,UnityEngine.GameObject)">
+            <summary>
+            Sets the value of a projector property.
+            </summary>
+            <param name="data">The data object associated with the projector.</param>
+            <param name="projector">The projector to modify.</param>
+            <param name="property">The property to set.</param>
+            <param name="value">The value to set for the property.</param>
+            <param name="gameObject">The game object associated with the projector.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveProjectorProperty(System.Object,UnityEngine.Projector,MaterialEditorAPI.MaterialAPI.ProjectorProperties,UnityEngine.GameObject)">
+            <summary>
+            Removes a projector property.
+            </summary>
+            <param name="data">The data object associated with the projector.</param>
+            <param name="projector">The projector to modify.</param>
+            <param name="property">The property to remove.</param>
+            <param name="gameObject">The game object associated with the projector.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetProjectorList(System.Object,UnityEngine.GameObject)">
+            <summary>
+            Gets the list of projectors associated with a game object.
+            </summary>
+            <param name="data">The data object associated with the game object.</param>
+            <param name="gameObject">The game object to retrieve projectors from.</param>
+            <returns>An enumerable list of projectors.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.MaterialCopyEdits(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Copies edits made to a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to copy edits from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.MaterialPasteEdits(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Pastes edits to a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to paste edits to.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.MaterialCopyRemove(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Removes copied edits from a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove copied edits from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialNameOriginal(System.Object,UnityEngine.Renderer,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Gets the original name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="renderer">The renderer associated with the material.</param>
+            <param name="material">The material to retrieve the name from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original name of the material.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialName(System.Object,UnityEngine.Renderer,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Sets the name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="renderer">The renderer associated with the material.</param>
+            <param name="material">The material to set the name for.</param>
+            <param name="value">The new name for the material.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialName(System.Object,UnityEngine.Renderer,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Removes the name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="renderer">The renderer associated with the material.</param>
+            <param name="material">The material to remove the name from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialShaderNameOriginal(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Gets the original shader name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the shader name from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original shader name of the material.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialShaderName(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Sets the shader name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the shader name for.</param>
+            <param name="value">The new shader name for the material.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialShaderName(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Removes the shader name of a material.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the shader name from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialShaderRenderQueueOriginal(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Gets the original render queue value of a material's shader.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the render queue value from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original render queue value of the material's shader.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialShaderRenderQueue(System.Object,UnityEngine.Material,System.Int32,UnityEngine.GameObject)">
+            <summary>
+            Sets the render queue value of a material's shader.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the render queue value for.</param>
+            <param name="value">The new render queue value for the material's shader.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialShaderRenderQueue(System.Object,UnityEngine.Material,UnityEngine.GameObject)">
+            <summary>
+            Removes the render queue value of a material's shader.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the render queue value from.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialTextureValueOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original texture value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the texture value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>True if the texture value has changed; otherwise, false.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialTexture(System.Object,UnityEngine.Material,System.String,System.String,UnityEngine.GameObject)">
+            <summary>
+            Sets the texture value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the texture value for.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="filePath">The file path of the texture to set.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialTexture(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the texture value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the texture value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialTextureOffsetOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original texture offset value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the texture offset value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original texture offset value of the material property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialTextureOffset(System.Object,UnityEngine.Material,System.String,UnityEngine.Vector2,UnityEngine.GameObject)">
+            <summary>
+            Sets the texture offset value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the texture offset value for.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="value">The new texture offset value.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialTextureOffset(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the texture offset value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the texture offset value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialTextureScaleOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original texture scale value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the texture scale value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original texture scale value of the material property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialTextureScale(System.Object,UnityEngine.Material,System.String,UnityEngine.Vector2,UnityEngine.GameObject)">
+            <summary>
+            Sets the texture scale value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the texture scale value for.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="value">The new texture scale value.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialTextureScale(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the texture scale value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the texture scale value from.</param>
+            <param name="propertyName">The name of the texture property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialColorPropertyValueOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original color value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the color value from.</param>
+            <param name="propertyName">The name of the color property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original color value of the material property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialColorProperty(System.Object,UnityEngine.Material,System.String,UnityEngine.Color,UnityEngine.GameObject)">
+            <summary>
+            Sets the color value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the color value for.</param>
+            <param name="propertyName">The name of the color property.</param>
+            <param name="value">The new color value.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialColorProperty(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the color value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the color value from.</param>
+            <param name="propertyName">The name of the color property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialFloatPropertyValueOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original float value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the float value from.</param>
+            <param name="propertyName">The name of the float property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original float value of the material property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialFloatProperty(System.Object,UnityEngine.Material,System.String,System.Single,UnityEngine.GameObject)">
+            <summary>
+            Sets the float value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the float value for.</param>
+            <param name="propertyName">The name of the float property.</param>
+            <param name="value">The new float value.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialFloatProperty(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the float value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the float value from.</param>
+            <param name="propertyName">The name of the float property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.GetMaterialKeywordPropertyValueOriginal(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Gets the original keyword value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to retrieve the keyword value from.</param>
+            <param name="propertyName">The name of the keyword property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+            <returns>The original keyword value of the material property.</returns>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.SetMaterialKeywordProperty(System.Object,UnityEngine.Material,System.String,System.Boolean,UnityEngine.GameObject)">
+            <summary>
+            Sets the keyword value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to set the keyword value for.</param>
+            <param name="propertyName">The name of the keyword property.</param>
+            <param name="value">The new keyword value.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.MaterialEditorUI.RemoveMaterialKeywordProperty(System.Object,UnityEngine.Material,System.String,UnityEngine.GameObject)">
+            <summary>
+            Removes the keyword value of a material property.
+            </summary>
+            <param name="data">The data object associated with the material.</param>
+            <param name="material">The material to remove the keyword value from.</param>
+            <param name="propertyName">The name of the keyword property.</param>
+            <param name="gameObject">The game object associated with the material.</param>
+        </member>
+        <member name="T:MaterialEditorAPI.AutoScrollToSelectionWithDropdown">
+            <summary>
+            Set the initial scroll position of the dropdown to the position of the selected item.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.FloatLabelDragTrigger">
+            <summary>
+            Allows dragging to adjust the value of an InputField.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.FloatLabelDragTrigger.InputField">
+            <summary>
+            The InputField that will be adjusted when dragging.
+            </summary>
+        </member>
+        <member name="F:MaterialEditorAPI.FloatLabelDragTrigger.PairedInputFields">
+            <summary>
+            Optional paired InputFields that will also be adjusted when dragging.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.FloatLabelDragTrigger.Initialize(UnityEngine.UI.InputField,UnityEngine.UI.InputField[])">
+            <summary>
+            Initializes the FloatLabelDragTrigger with the specified InputField and optional paired InputFields.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.DropdownFilter.AddFilterUI(UnityEngine.UI.Dropdown,System.String)">
+            <summary>
+            Add filter UI to dropdown
+            </summary>
+            <param name="target">Target dropdown</param>
+            <param name="persistentKeyword">Name for persistent filter. A persisted filter will continue to hold the filter after it is closed.</param>
+        </member>
+        <member name="M:MaterialEditorAPI.DropdownFilter.SetUIPosition">
+            <summary>
+            Set the position of the filter UI.
+            The drop-down UI is displayed either up or down depending on position. 
+            Change the position of the filter UI accordingly.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.ResizeHandle">
+            <summary>
+            Attach to a small corner element to allow resizing of a parent RectTransform by dragging.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.RightClickHandler">
+            <summary>
+            Handles left-click and right-click on a UI element without using a Button component,
+            which avoids layout recalculation side-effects on Text elements.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.StickySectionBar">
+            <summary>
+            Sticky section bars that sit just below the ME title bar.
+            Uses scroll-position math (not world-space) to decide which bar is visible.
+            Each bar mirrors the real section header and includes a working collapse button.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.StickySectionBar.UpdateLayout(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Updates section indices and label text. Call from PopulateList after rebuilding the item list.
+            </summary>
+        </member>
+        <member name="T:MaterialEditorAPI.SliderClickExpander">
+            <summary>
+            Expands the clickable area of a Slider to fill its parent panel row.
+            Unity's HorizontalLayoutGroup prevents anchor-based solutions, so we
+            parent a transparent Image to the row panel and forward pointer events.
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.Utilities.OpenFileInExplorer(System.String)">
+            <summary>
+            Open explorer focused on the specified file or directory
+            </summary>
+        </member>
+        <member name="M:MaterialEditorAPI.Utilities.NativeMethods.OpenFolderAndSelectFile(System.String)">
+            <summary>
+            Open explorer focused on item. Reuses already opened explorer windows unlike Process.Start
+            </summary>
+        </member>
+        <member name="T:KKAPI.Utilities.OpenFileDialog">
+            <summary>
+            Gives access to the Windows open file dialog.
+            http://www.pinvoke.net/default.aspx/comdlg32/GetOpenFileName.html
+            http://www.pinvoke.net/default.aspx/Structures/OpenFileName.html
+            http://www.pinvoke.net/default.aspx/Enums/OpenSaveFileDialgueFlags.html
+            https://social.msdn.microsoft.com/Forums/en-US/2f4dd95e-5c7b-4f48-adfc-44956b350f38/getopenfilename-for-multiple-files?forum=csharpgeneral
+            </summary>
+        </member>
+        <member name="F:KKAPI.Utilities.OpenFileDialog.SingleFileFlags">
+            <summary>
+            Arguments used for opening a single file
+            </summary>
+        </member>
+        <member name="F:KKAPI.Utilities.OpenFileDialog.MultiFileFlags">
+            <summary>
+            Arguments used for opening multiple files
+            </summary>
+        </member>
+        <member name="M:KKAPI.Utilities.OpenFileDialog.ShowDialog(System.String,System.String,System.String,System.String,KKAPI.Utilities.OpenFileDialog.OpenSaveFileDialgueFlags,System.IntPtr)">
+            <summary>
+            Show windows file open dialog. Blocks the thread until user closes the dialog. Returns list of selected files, or null if user cancelled the action.
+            </summary>
+            <param name="title">
+            A string to be placed in the title bar of the dialog box. If this member is NULL, the system uses
+            the default title (that is, Save As or Open)
+            </param>
+            <param name="initialDir">
+            The initial directory. The algorithm for selecting the initial directory varies on different
+            platforms.
+            </param>
+            <param name="filter">
+            A list of filter pairs separated by |. First item is the display name, while the second is
+            the actual filter (e.g. *.txt) Example: <code>"Log files (.log)|*.log|All files|*.*"</code>
+            </param>
+            <param name="defaultExt">
+            The default extension. This extension is appended to the file name if the user fails to type
+            an extension.
+            </param>
+            <param name="flags">
+            A set of bit flags you can use to initialize the dialog box. When the dialog box returns, it sets these flags to
+            indicate the user's input.
+            This member can be a combination of the CommomDialgueFlags.
+            </param>
+            <param name="owner">Hwnd pointer of the owner window. IntPtr.Zero to use default parent</param>
+        </member>
+        <member name="M:KKAPI.Utilities.OpenFileDialog.Show(System.Action{System.String[]},System.String,System.String,System.String,System.String,KKAPI.Utilities.OpenFileDialog.OpenSaveFileDialgueFlags)">
+            <summary>
+            Show windows file open dialog. Doesn't pause the game.
+            </summary>
+            <param name="onAccept">Action that gets called with results of user's selection. Returns list of selected files, or null if user cancelled the action.
+            WARNING: This runs on another thread! Game will crash if you attempt to access unity methods.
+            You can use <code>KoikatuAPI.SynchronizedInvoke</code> to go back to the main thread.</param>
+            <param name="title">
+            A string to be placed in the title bar of the dialog box. If this member is NULL, the system uses
+            the default title (that is, Save As or Open)
+            </param>
+            <param name="initialDir">
+            The initial directory. The algorithm for selecting the initial directory varies on different
+            platforms.
+            </param>
+            <param name="filter">
+            A list of filter pairs separated by |. First item is the display name, while the second is
+            the actual filter (e.g. *.txt) Example: <code>"Log files (.log)|*.log|All files|*.*"</code>
+            </param>
+            <param name="defaultExt">
+            The default extension. This extension is appended to the file name if the user fails to type
+            an extension.
+            </param>
+            <param name="flags">
+            A set of bit flags you can use to initialize the dialog box. When the dialog box returns, it sets these flags to
+            indicate the user's input.
+            This member can be a combination of the CommomDialgueFlags.
+            </param>
+        </member>
+        <member name="F:KKAPI.Utilities.OpenFileDialog.OpenSaveFileDialgueFlags.OFN_NOLONGNAMES">
+            <summary>
+            Force no long names for 4.x modules
+            </summary>
+        </member>
+        <member name="F:KKAPI.Utilities.OpenFileDialog.OpenSaveFileDialgueFlags.OFN_EXPLORER">
+            <summary>
+            New look commdlg
+            </summary>
+        </member>
+        <member name="F:KKAPI.Utilities.OpenFileDialog.OpenSaveFileDialgueFlags.OFN_LONGNAMES">
+            <summary>
+            Force long names for 3.x modules
+            </summary>
+        </member>
+        <member name="M:UILib.Extensions.OptionIndex(UnityEngine.UI.Dropdown,System.String)">
+            <summary>
+            Return the index of the option matching the specified text or -1 if not found
+            </summary>
+        </member>
+        <member name="M:UILib.Extensions.OptionText(UnityEngine.UI.Dropdown,System.Int32)">
+            <summary>
+            Returns the text of the item at the specified index or null if option doesn't exist
+            </summary>
+        </member>
+        <member name="M:UILib.Extensions.Set(UnityEngine.UI.Toggle,System.Boolean,System.Boolean)">
+            <summary>
+            Set the value of a Toggle
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+            <param name="sendCallback">Whether to trigger events</param>
+        </member>
+        <member name="M:UILib.Extensions.Set(UnityEngine.UI.Slider,System.Single,System.Boolean)">
+            <summary>
+            Set the value of a Slider
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+            <param name="sendCallback">Whether to trigger events</param>
+        </member>
+        <member name="M:UILib.Extensions.Set(UnityEngine.UI.Scrollbar,System.Single,System.Boolean)">
+            <summary>
+            Set the value of a Scrollbar
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+            <param name="sendCallback">Whether to trigger events</param>
+        </member>
+        <member name="M:UILib.Extensions.Set(UnityEngine.UI.Dropdown,System.Int32)">
+            <summary>
+            Set the value of a Dropdown
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:UILib.Extensions.Set(UnityEngine.UI.InputField,System.String,System.Boolean)">
+            <summary>
+            Set the value of an InputField
+            </summary>
+            <param name="instance"></param>
+            <param name="value"></param>
+            <param name="sendCallback">Whether to trigger events</param>
+        </member>
+    </members>
+</doc>
